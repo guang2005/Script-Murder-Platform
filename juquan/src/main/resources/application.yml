@@ -1,0 +1,49 @@
+jq:
+  ai:
+    enabled: true
+    base-url: http://localhost:11434
+    embedding-url: http://localhost:11434
+    api-key: local
+    model: qwen2.5:7b-instruct
+    embedding-model: nomic-embed-text
+    connect-timeout-ms: 5000
+    read-timeout-ms: 30000
+    rag-top-k: 5
+    rag-score-threshold: 0.75
+server:
+  port: 8081
+spring:
+  application:
+    name: jq
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hmdp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 192.168.223.128
+      port: 6379
+      password: 123321
+      lettuce:
+        pool:
+          max-active: 30
+          max-idle: 15
+          min-idle: 5
+          time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON ?????????
+mybatis-plus:
+  type-aliases-package: com.jq.entity # ?????
+  mapper-locations: classpath:/mapper/*.xml
+logging:
+  level:
+    com.jq: debug
+
+rocketmq:
+  name-server: localhost:9876  # NameServer 地址（Windows 本地）
+  producer:
+    group: seckill-producer-group  # 生产者组（必须指定，RocketMQ 核心概念）
+    send-message-timeout: 3000    # 发送超时时间
+    retry-times-when-send-failed: 2 # 发送失败重试次数
+
