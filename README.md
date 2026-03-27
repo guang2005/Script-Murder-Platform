@@ -22,7 +22,7 @@
 1. 导入项目到 IDEA
 2. 创建数据库，执行 SQL 文件
 3. 在虚拟机启动Redis
-4. 在本机部署RocketMQ(建议docker部署)
+4. 在本机部署RocketMQ(建议docker部署,如果你遇到了部署问题,可以看一下这篇我写的博客https://www.cnblogs.com/guang2005/p/19784119)
 5. 本机部署ollama,配置模型
 6. 修改 application.yml 数据库配置
 8. 启动项目，访问 localhost:端口
